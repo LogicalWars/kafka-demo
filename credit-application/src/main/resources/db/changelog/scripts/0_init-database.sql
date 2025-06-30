@@ -1,6 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS netology;
-
-CREATE TABLE IF NOT EXISTS netology.credits (
+CREATE TABLE IF NOT EXISTS credits (
     id BIGSERIAL PRIMARY KEY,
     amount NUMERIC(15, 2) NOT NULL,
     term_month INTEGER NOT NULL,

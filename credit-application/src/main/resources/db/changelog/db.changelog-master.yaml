@@ -4,5 +4,5 @@ databaseChangeLog:
       author: koshelevva
       changes:
         - sqlFile:
-            path: db/changelog/scripts/0_init-database.sql
+            path: /scripts/0_init-database.sql
             relativeToChangelogFile: true

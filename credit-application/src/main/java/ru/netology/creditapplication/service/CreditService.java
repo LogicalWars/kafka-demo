@@ -2,15 +2,17 @@ package ru.netology.creditapplication.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.netology.creditapplication.dto.request.CreditRequest;
+import ru.netology.creditapplication.mapper.CreditDtoMapper;
 import ru.netology.creditapplication.repository.CreditRepository;
-import ru.netology.creditapplication.entity.Credit;
 
 @Service
 @RequiredArgsConstructor
 public class CreditService {
     private final CreditRepository creditRepository;
+    private final CreditDtoMapper creditDtoMapper;
 
-    public Long createCredit(Credit credit) {
-        return creditRepository.save(credit).getId();
+    public Long createCredit(CreditRequest creditRequest) {
+        return creditRepository.save(creditDtoMapper.toEntity(creditRequest)).getId();
     }
 }

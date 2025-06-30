@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 public class CreditRequest {
-    private Long id;
     private BigDecimal amount;
     private Integer termMonth;
     private BigDecimal monthlyIncome;

@@ -1,11 +1,11 @@
-POST http://localhost:8080/api/item
+POST http://localhost:8080
 Content-Type: application/json
 
 {
-  "amount": 500000.00,
+  "amount": 500000,
   "termMonth": 24,
-  "monthlyIncome": 80000.00,
-  "loanPayments": 15000.00,
+  "monthlyIncome": 80000,
+  "loanPayments": 15000,
   "creditScore": 720
 }
 
