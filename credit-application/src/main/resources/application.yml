@@ -3,15 +3,31 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5431
+    url: jdbc:postgresql://postgres:5432/creditdb
     username: postgres
     password: postgres
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: validate
     show-sql: true
-
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.yaml
+
+  kafka:
+    bootstrap-servers: kafka:9093
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    admin:
+      auto-create: true
+
+app:
+  kafka:
+    producer:
+      topic:
+        credit-create: credit-create-events
