@@ -1,4 +1,4 @@
-package ru.netology.creditapplication.dto.request;
+package ru.netology.creditapplication.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

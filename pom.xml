@@ -24,6 +24,8 @@
 
     <modules>
         <module>credit-application</module>
+        <module>credit-processor</module>
+        <module>common-dto</module>
     </modules>
 
     <dependencyManagement>

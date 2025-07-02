@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
 @Configuration
-public class KafkaConfig {
+public class KafkaProducerConfig {
 
     @Value("${app.kafka.producer.topic.credit-create}")
     private String creditCreateTopic;

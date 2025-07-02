@@ -1,13 +1,15 @@
-package ru.netology.creditapplication.dto.event;
+package ru.netology.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.netology.creditapplication.entity.CreditStatus;
+import lombok.NoArgsConstructor;
+import ru.netology.CreditStatus;
 
 import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class CreditCreateEvent {
     private Long id;
     private BigDecimal amount;

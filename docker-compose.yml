@@ -38,6 +38,13 @@ services:
     networks:
       - kafka-demo-network
 
+  rabbitmq:
+    image: rabbitmq:3.13-alpine
+    ports:
+      - "5672:5672"
+    networks:
+      - kafka-demo-network
+
   credit-application:
     build:
       context: ./credit-application
@@ -47,6 +54,19 @@ services:
     depends_on:
       - postgres
       - kafka
+      - rabbitmq
+    networks:
+      - kafka-demo-network
+
+  credit-processor:
+    build:
+      context: ./credit-processor
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+      - kafka
+      - credit-application
+      - rabbitmq
     networks:
       - kafka-demo-network
 

@@ -1,4 +1,4 @@
-package ru.netology.creditapplication.entity;
+package ru.netology;
 
 public enum CreditStatus {
     PENDING,

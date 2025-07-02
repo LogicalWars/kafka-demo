@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: kafka:9093
+
+    consumer:
+      group-id: credit-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+
+    admin:
+      auto-create: true
+
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
+app:
+  kafka:
+    consumer:
+      topic:
+        credit-create: credit-create-events
+  rabbitmq:
+    queue:
+      credit-decision: credit-decision
