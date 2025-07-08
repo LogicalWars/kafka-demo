@@ -1,7 +1,19 @@
-FROM alpine/java:21-jdk
+FROM bellsoft/liberica-openjre-alpine:21-cds
 
-COPY target/credit-processor-1.0.0.jar app.jar
+WORKDIR /application
+
+COPY --chown=spring-user:spring-user target/credit-processor-1.0.0.jar app.jar
+
+RUN adduser -S spring-user
+USER spring-user
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "app.jar"]
+ENV JAVA_OPTS="-XX:ErrorFile=/tmp/java_error.log \
+    -XX:+HeapDumpOnOutOfMemoryError \
+    -XX:HeapDumpPath=/tmp \
+    -XX:+CrashOnOutOfMemoryError \
+    -XX:+UseContainerSupport \
+    -XX:MaxRAMPercentage=75"
+
+ENTRYPOINT exec java $JAVA_OPTS -jar app.jar

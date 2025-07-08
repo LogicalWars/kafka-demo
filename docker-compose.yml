@@ -51,6 +51,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     depends_on:
       - postgres
       - kafka
@@ -62,6 +66,10 @@ services:
     build:
       context: ./credit-processor
       dockerfile: Dockerfile
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     depends_on:
       - postgres
       - kafka
